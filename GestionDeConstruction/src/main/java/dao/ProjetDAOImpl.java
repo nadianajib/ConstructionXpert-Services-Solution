@@ -1,76 +1,77 @@
 package dao;
 
-import metier.Projet;
-import util.Connectiondb;
-
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import dao.IProjetDAO;
+import metier.Projet;
 
+public class ProjetDAOImpl implements IProjetDAO{
 
-public class ProjetDAOImpl implements IProjetDAO {
+    private Connection connection;
+
+    public ProjetDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
 
     @Override
-    public Projet save(Projet p) {
-        Connection connection = Connectiondb.getConnection();
-        try {
-            String query = "INSERT INTO Projet (nomprojet, description, datedebut,datefin,budget) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1, p.getProjetName());
-            ps.setString(2, p.getDescription());
-            ps.setDate(3, p.getDatedebut());
-            ps.setDate(4, p.getDatefin());
-            ps.setDouble(5, p.getBudget());
-            ps.executeUpdate();
-
-//            // Récupérer l'ID généré
-//            ResultSet rs = ps.getGeneratedKeys();
-//            if (rs.next()) {
-//                p.setProjetId(rs.getInt(1));
-//            }
-//
-//            ps.close();
-            PreparedStatement ps2=connection.prepareStatement
-                    ("SELECT MAX(idprojet) AS MAX_ID FROM Projet");
-            ResultSet rs=ps2.executeQuery();
-            if(rs.next()) {
-                p.setProjetId(rs.getInt("MAX_ID"));
-            }
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public void ajouterProjet(Projet projet) throws SQLException {
+        String query = "INSERT INTO Projet (NomProjet, Description, DateDebut, DateFin, Budget) VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, projet.getProjetName());
+            stmt.setString(2, projet.getDescription());
+            stmt.setDate(3, new java.sql.Date(projet.getDatedebut().getTime()));
+            stmt.setDate(4, new java.sql.Date(projet.getDatefin().getTime()));
+            stmt.setDouble(5, projet.getBudget());
+            stmt.executeUpdate();
         }
-        return p;
-    }
-
-
-
-    @Override
-    public List<Projet> getTousProjet() {
-
-        return List.of();
     }
 
     @Override
-    public void deleteProjet(int id) {
-
+    public List<Projet> afficherListeProjets() throws SQLException {
+        List<Projet> projets = new ArrayList<>();
+        String query = "SELECT * FROM Projet";
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                Projet projet = new Projet(
+                        rs.getInt("projetId"),
+                        rs.getString("NomProjet"),
+                        rs.getString("Description"),
+                        rs.getDate("DateDebut"),
+                        rs.getDate("DateFin"),
+                        rs.getDouble("Budget")
+                );
+                projets.add(projet);
+            }
+        }
+        return projets;
     }
 
     @Override
-    public List<Projet> recherche(String motCle) {
-        return List.of();
+    public void modifierProjet(Projet projet) throws SQLException {
+        String query = "UPDATE Projet SET projetName = ?, description = ?,datedebut= ?, dateFin = ?, budget = ? WHERE IdProjet = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, projet.getProjetName());
+            stmt.setString(2, projet.getDescription());
+            stmt.setDate(3, new java.sql.Date(projet.getDatedebut().getTime()));
+            stmt.setDate(4, new java.sql.Date(projet.getDatefin().getTime()));
+            stmt.setDouble(5, projet.getBudget());
+            stmt.setInt(6, projet.getProjetId());
+            stmt.executeUpdate();
+        }
     }
 
     @Override
-    public Projet updateProjet(Projet projet) {
-        return null;
-    }
-
-    @Override
-    public Projet getProjet(int id) {
-        return null;
+    public void supprimerProjet(int idProjet) throws SQLException {
+        String query = "DELETE FROM Projet WHERE IdProjet = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, idProjet);
+            stmt.executeUpdate();
+        }
     }
 }

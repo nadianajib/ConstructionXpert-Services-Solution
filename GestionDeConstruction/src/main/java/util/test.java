@@ -1,9 +1,9 @@
 package util;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import dao.ProjetDAOImpl;
+import metier.Projet;
+
+import java.sql.*;
 
 public class test {
 
@@ -16,8 +16,8 @@ public class test {
                     int idProjet = resultSet.getInt("IdProjet");
                     String nomProjet = resultSet.getString("NomProjet");
                     String description = resultSet.getString("description");
-                    String dteDebut = resultSet.getString("DteDebut");
-                    String dateFin = resultSet.getString("DateFin");
+                    String dteDebut = resultSet.getString("datedebut");
+                    String dateFin = resultSet.getString("datefin");
                     double budget = resultSet.getDouble("Budget");
 
                     System.out.println("ID Projet: " + idProjet);
@@ -32,5 +32,11 @@ public class test {
         } catch (SQLException e) {
             System.err.println("Error during database operation: " + e.getMessage());
         }
+
+        ProjetDAOImpl dao = new ProjetDAOImpl();
+        Date datedebut = new Date(2024,05,02);
+        Date datefin = new Date(2024,05,05);
+        Projet p = dao.save(new Projet("nom", "ddd",datedebut,datefin, 2000));
+        System.out.println(p.toString());
     }
 }

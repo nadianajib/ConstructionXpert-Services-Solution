@@ -6,20 +6,23 @@ public class Projet {
     private int projetId;
     private String projetName;
     private String description;
-    private Date date_debut;
-    private Date date_fin;
-    private double precision;
+    private Date datedebut;
+    private Date datefin;
+    private double budget;
 
     // Constructeur par défaut
     public Projet() {
     }
 
     // Constructeur avec paramètres
-    public Projet(String projetName, String description, Date date_debut, double precision) {
+
+
+    public Projet(String projetName, String description, Date datedebut, Date datefin, double budget) {
         this.projetName = projetName;
         this.description = description;
-        this.date_debut = date_debut;
-        this.precision = precision;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.budget = budget;
     }
 
     // Getters et Setters
@@ -43,25 +46,23 @@ public class Projet {
         return description;
     }
 
+    public double getBudget() {
+        return budget;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public Date getDate_debut() {
-        return date_debut;
+    public Date getDatedebut() {
+        return datedebut;
     }
 
-    public void setDate_debut(Date date_debut) {
-        this.date_debut = date_debut;
+    public Date getDatefin() {
+        return datefin;
     }
 
-    public double getPrecision() {
-        return precision;
-    }
 
-    public void setPrecision(double precision) {
-        this.precision = precision;
-    }
 
     @Override
     public String toString() {
@@ -69,8 +70,10 @@ public class Projet {
                 "projetId=" + projetId +
                 ", projetName='" + projetName + '\'' +
                 ", description='" + description + '\'' +
-                ", date_debut=" + date_debut +
-                ", precision=" + precision +
+                ", date_debut=" + datedebut +
+                ", datefin=" + datefin +
+
+                ", budget=" + budget +
                 '}';
     }
 }

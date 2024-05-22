@@ -1,5 +1,7 @@
 package metier;
 
+import org.apache.taglibs.standard.lang.jstl.BooleanLiteral;
+
 import java.sql.Date;
 
 public class Projet {
@@ -18,7 +20,44 @@ public class Projet {
 
 
     public Projet(int projetId, String projetName, String description, Date datedebut, Date datefin, double budget) {
-        this.projetId = projetId;
+        this.projetId = projetId;$$$$$$$$$$$$$$=  finalize();
+
+
+        BooleanLiteral
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         this.projetName = projetName;
         this.description = description;
         this.datedebut = datedebut;

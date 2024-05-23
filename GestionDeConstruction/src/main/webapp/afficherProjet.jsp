@@ -23,32 +23,24 @@
             <th>Date de Début</th>
             <th>Date de Fin</th>
             <th>Budget</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <%
-            List<Projet> listProjet = (List<Projet>) request.getAttribute("afficherList");
-            if (listProjet != null) {
-                for (Projet projet : listProjet) {
-        %>
+        <c:forEach var="projet" items="${afficherList}">
             <tr>
-                <td><%= projet.getProjetId() %></td>
-                <td><%= projet.getProjetName() %>}</td>
-                <td><%= projet.getDescription()%></td>
-                <td><%= projet.getDatedebut() %></td>
-                <td><%= projet.getDatefin() %></td>
-                <td><%= projet.getBudget()%></td>
+                <td>${projet.projetId}</td>
+                <td>${projet.projetName}</td>
+                <td>${projet.description}</td>
+                <td>${projet.datedebut}</td>
+                <td>${projet.datefin}</td>
+                <td>${projet.budget}</td>
+                <td>
+                    <a href="modifierProjet?id=${projet.projetId}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="SupprimerServlet?id=${projet.projetId}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet?');">Supprimer</a>
+                </td>
             </tr>
-        <%
-            }
-            } else {
-        %>
-        <tr>
-            <td colspan="6">Aucun projet disponible.</td>
-        </tr>
-        <%
-            }
-        %>
+        </c:forEach>
         </tbody>
     </table>
 </div>

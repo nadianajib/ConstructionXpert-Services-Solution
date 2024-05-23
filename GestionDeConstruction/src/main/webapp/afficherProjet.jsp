@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.List" %>
+<%@ page import="metier.Projet" %>
+<%@ page import="dao.ProjetDAOImpl" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="container">
     <h1 class="mt-5">Liste des Projets</h1>
     <table class="table table-bordered mt-3">
@@ -22,16 +26,29 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="projet" items="${projets}">
+        <%
+            List<Projet> listProjet = (List<Projet>) request.getAttribute("afficherList");
+            if (listProjet != null) {
+                for (Projet projet : listProjet) {
+        %>
             <tr>
-                <td>${projet.projetId}</td>
-                <td>${projet.projetName}</td>
-                <td>${projet.description}</td>
-                <td>${projet.datedebut}</td>
-                <td>${projet.datefin}</td>
-                <td>${projet.budget}</td>
+                <td><%= projet.getProjetId() %></td>
+                <td><%= projet.getProjetName() %>}</td>
+                <td><%= projet.getDescription()%></td>
+                <td><%= projet.getDatedebut() %></td>
+                <td><%= projet.getDatefin() %></td>
+                <td><%= projet.getBudget()%></td>
             </tr>
-        </c:forEach>
+        <%
+            }
+            } else {
+        %>
+        <tr>
+            <td colspan="6">Aucun projet disponible.</td>
+        </tr>
+        <%
+            }
+        %>
         </tbody>
     </table>
 </div>

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IProjetDAO {
 
-    void ajouterProjet(Projet projet) throws SQLException;
+    Projet ajouterProjet(Projet projet) throws SQLException;
     List<Projet> afficherListeProjets() throws SQLException;
     void modifierProjet(Projet projet) throws SQLException;
     void supprimerProjet(int idProjet) throws SQLException;

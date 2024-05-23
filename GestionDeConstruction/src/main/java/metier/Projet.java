@@ -16,49 +16,19 @@ public class Projet {
     public Projet() {
     }
 
+    public Projet(String projetName, String description, Date datedebut, Date datefin, double budget) {
+        this.projetName = projetName;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.budget = budget;
+    }
+
     // Constructeur avec paramètres
 
-
     public Projet(int projetId, String projetName, String description, Date datedebut, Date datefin, double budget) {
-        this.projetId = projetId;$$$$$$$$$$$$$$=  finalize();
-
-
-        BooleanLiteral
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        this.projetName = projetName;
+        this.projetId = projetId;
+         this.projetName = projetName;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
@@ -98,11 +68,21 @@ public class Projet {
         return datedebut;
     }
 
+    public void setDatedebut(Date datedebut) {
+        this.datedebut = datedebut;
+    }
+
+    public void setDatefin(Date datefin) {
+        this.datefin = datefin;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
     public Date getDatefin() {
         return datefin;
     }
-
-
 
     @Override
     public String toString() {

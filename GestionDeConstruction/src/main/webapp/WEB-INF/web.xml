@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
     <servlet>
-        <servlet-name>ServletAfficherProjets</servlet-name>
-        <servlet-class>web.afficherProjetServlet</servlet-class>
+        <servlet-name>AfficherServlet</servlet-name>
+        <servlet-class>web.AfficherServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletAfficherProjets</servlet-name>
-        <url-pattern>/afficherProjets</url-pattern>
+        <servlet-name>AfficherServlet</servlet-name>
+        <url-pattern>/AfficherServlet</url-pattern>
     </servlet-mapping>
 </web-app>

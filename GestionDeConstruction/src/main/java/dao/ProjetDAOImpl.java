@@ -7,19 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import dao.IProjetDAO;
+
 import metier.Projet;
+import util.Connectiondb;
 
 public class ProjetDAOImpl implements IProjetDAO{
 
-    private Connection connection;
-
-    public ProjetDAOImpl(Connection connection) {
-        this.connection = connection;
-    }
-
+    Connection connection = Connectiondb.getConnection();
     @Override
-    public void ajouterProjet(Projet projet) throws SQLException {
+    public Projet ajouterProjet(Projet projet) throws SQLException {
         String query = "INSERT INTO Projet (NomProjet, Description, DateDebut, DateFin, Budget) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, projet.getProjetName());
@@ -29,25 +25,26 @@ public class ProjetDAOImpl implements IProjetDAO{
             stmt.setDouble(5, projet.getBudget());
             stmt.executeUpdate();
         }
+        return projet;
     }
 
     @Override
     public List<Projet> afficherListeProjets() throws SQLException {
         List<Projet> projets = new ArrayList<>();
-        String query = "SELECT * FROM Projet";
+        String query = "SELECT * FROM projet";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Projet projet = new Projet(
-                        rs.getInt("projetId"),
-                        rs.getString("NomProjet"),
-                        rs.getString("Description"),
-                        rs.getDate("DateDebut"),
-                        rs.getDate("DateFin"),
-                        rs.getDouble("Budget")
-                );
+                Projet projet = new Projet();
+                        projet.setProjetId(rs.getInt("idprojet"));
+                        projet.setProjetName(rs.getString("nomProjet"));
+                        projet.setDescription(rs.getString("description"));
+                        projet.setDatedebut(rs.getDate("dateDebut"));
+                        projet.setDatefin(rs.getDate("dateFin"));
+                        projet.setBudget(rs.getDouble("budget"));
                 projets.add(projet);
             }
+
         }
         return projets;
     }

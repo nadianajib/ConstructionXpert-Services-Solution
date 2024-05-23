@@ -12,12 +12,6 @@ public class Connectiondb {
     private static final String USERNAME = "postgres";
     private static final String PASSWORD = "admin";
 
-
-
-
-
-
-
     public static Connection getConnection()
     {
         Connection connection =null ;

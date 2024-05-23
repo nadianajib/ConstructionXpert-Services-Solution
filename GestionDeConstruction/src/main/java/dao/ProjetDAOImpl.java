@@ -14,6 +14,11 @@ import util.Connectiondb;
 public class ProjetDAOImpl implements IProjetDAO{
 
     Connection connection = Connectiondb.getConnection();
+
+    public ProjetDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public Projet ajouterProjet(Projet projet) throws SQLException {
         String query = "INSERT INTO Projet (NomProjet, Description, DateDebut, DateFin, Budget) VALUES (?, ?, ?, ?, ?)";

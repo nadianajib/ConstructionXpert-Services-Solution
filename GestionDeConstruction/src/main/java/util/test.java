@@ -11,7 +11,7 @@ public class test {
 
     public static void main(String[] args) throws SQLException {
 
-        ProjetDAOImpl  afficher = new ProjetDAOImpl();
+        //ProjetDAOImpl  afficher = new ProjetDAOImpl();
 //        try (Connection connection = Connectiondb.getConnection()) {
 //            String query = "SELECT * FROM Projet";
 //            try (Statement statement = connection.createStatement();
@@ -37,6 +37,6 @@ public class test {
 //            System.err.println("Error during database operation: " + e.getMessage());
 //        }
 
-        List<Projet> afficherlist = afficher.afficherListeProjets();
+        //List<Projet> afficherlist = afficher.afficherListeProjets();
     }
 }

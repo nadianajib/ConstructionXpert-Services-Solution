@@ -10,4 +10,14 @@
         <servlet-name>AfficherServlet</servlet-name>
         <url-pattern>/AfficherServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AjouterServlet</servlet-name>
+        <servlet-class>web.AjouterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjouterServlet</servlet-name>
+        <url-pattern>/AjouterServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

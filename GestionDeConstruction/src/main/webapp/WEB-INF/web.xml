@@ -21,4 +21,13 @@
         <url-pattern>/AjouterServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ModifierServlet</servlet-name>
+        <servlet-class>web.ModifierProjet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModifierServlet</servlet-name>
+        <url-pattern>/ModifierServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

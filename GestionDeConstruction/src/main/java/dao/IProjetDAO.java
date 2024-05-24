@@ -10,6 +10,9 @@ public interface IProjetDAO {
 
     Projet ajouterProjet(Projet projet) throws SQLException;
     List<Projet> afficherListeProjets() throws SQLException;
-    void modifierProjet(Projet projet) throws SQLException;
+    void ModifierProjet(Projet projet) throws SQLException;
+
     void supprimerProjet(int idProjet) throws SQLException;
+
+    Projet rechbyid(int id) throws SQLException;
 }

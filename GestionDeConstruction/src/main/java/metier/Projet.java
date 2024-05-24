@@ -28,7 +28,7 @@ public class Projet {
 
     public Projet(int projetId, String projetName, String description, Date datedebut, Date datefin, double budget) {
         this.projetId = projetId;
-         this.projetName = projetName;
+        this.projetName = projetName;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
@@ -97,4 +97,3 @@ public class Projet {
                 '}';
     }
 }
-

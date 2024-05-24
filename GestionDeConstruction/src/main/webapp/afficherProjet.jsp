@@ -36,7 +36,7 @@
                 <td>${projet.datefin}</td>
                 <td>${projet.budget}</td>
                 <td>
-                    <a href="modifierProjet?id=${projet.projetId}" class="btn btn-primary btn-sm">Modifier</a>
+                    <a href="ModifierProjet?id=${projet.projetId}" class="btn btn-primary btn-sm">Modifier</a>
                     <a href="SupprimerServlet?id=${projet.projetId}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet?');">Supprimer</a>
                 </td>
             </tr>

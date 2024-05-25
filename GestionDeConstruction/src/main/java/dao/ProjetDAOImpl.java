@@ -37,8 +37,8 @@ public class ProjetDAOImpl implements IProjetDAO{
     public List<Projet> afficherListeProjets() throws SQLException {
         List<Projet> projets = new ArrayList<>();
         String query = "SELECT * FROM projet";
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
+        try (PreparedStatement stmt = connection.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Projet projet = new Projet();
                 projet.setProjetId(rs.getInt("idprojet"));
@@ -49,11 +49,9 @@ public class ProjetDAOImpl implements IProjetDAO{
                 projet.setBudget(rs.getDouble("budget"));
                 projets.add(projet);
             }
-
         }
         return projets;
     }
-
 
 
     @Override

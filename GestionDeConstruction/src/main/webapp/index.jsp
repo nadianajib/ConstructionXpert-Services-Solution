@@ -41,11 +41,12 @@
     .social{
       text-align: center;
     }
-    .logo_social{
-      width:20px;
-      height:20px;
+    .social logo_social{
+      width:10px;
+      height:10px;
       display: flex;
       text-align: center;
+      margin-right: 10px;
     }
   </style>
 </head>

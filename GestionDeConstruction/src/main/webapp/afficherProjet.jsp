@@ -29,9 +29,7 @@
             margin-right: 10px; /* Ajoute un espace entre les icônes */
         }
     </style>
-
 </head>
-
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">

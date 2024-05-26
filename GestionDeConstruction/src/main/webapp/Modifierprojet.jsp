@@ -52,7 +52,6 @@
         </div>
     </div>
 </nav>
-
 <div class="container">
     <h1 class="mt-5">Modifier Projet</h1>
     <form action="ModifierProjet" method="post">
@@ -80,8 +79,6 @@
         <button type="submit" class="btn btn-primary">Modifier</button>
     </form>
 </div>
-
-</body>
 <footer class="footer">
     <div class="container">
         <div class="social-icons">
@@ -92,5 +89,6 @@
         </div>
         <p>&copy; 2024 Construction Company. All rights reserved.</p>
     </div>
-</footer>
+    </footer>
+</body>
 </html>

@@ -41,12 +41,21 @@
     .social{
       text-align: center;
     }
-    .social logo_social{
-      width:10px;
-      height:10px;
-      display: flex;
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding:1px;
       text-align: center;
-      margin-right: 10px;
+      margin:5px;
+
+    }
+    .social-icons {
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #fff;
+      font-size: 24px;
+      margin-right: 10px; /* Ajoute un espace entre les icônes */
     }
   </style>
 </head>
@@ -92,19 +101,17 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-<footer>
-  <div class="social">
-    <h4> Social Media :</h4>
-    <div class="logo_social">
-      <img src="<%= request.getContextPath() %>/media/activite_fb.png" alt="null Image">
-      <img src="<%= request.getContextPath() %>/media/activite_insta.png" alt="Construction Image">
-      <img src="<%= request.getContextPath() %>/media/activite_twitter.png" alt="Construction Image">
-      <img src="<%= request.getContextPath() %>/media/activite_copyright.png" alt="Construction Image">
-
+<footer class="footer">
+  <div class="container">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
-  </div>
-  <div class="copyRight">
+    <p>&copy; 2024 Construction Company. All rights reserved.</p>
   </div>
 </footer>
+</body>
+
 </html>

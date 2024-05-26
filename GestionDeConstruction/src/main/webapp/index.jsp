@@ -33,30 +33,32 @@
       text-align: right;
     }
     .col-md-6{
-      margin-top: 200px;
+      margin-bottom: 100px;
     }
     .col-md-6 h1{
-      color: #FFBF00
+      color: #FFBF00;
+      margin-top: 100px;
     }
-    .social{
-      text-align: center;
+    .col-md-6 img {
+      margin-top: 100px;
     }
-    .footer {
-      background-color: #333;
-      color: #fff;
-      padding:1px;
-      text-align: center;
-      margin:5px;
 
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      color: #fff;
-      font-size: 24px;
-      margin-right: 10px; /* Ajoute un espace entre les icônes */
-    }
+      .footer {
+        background-color: #333;
+        color: #fff;
+        padding:1px;
+        text-align: center;
+        margin-top:80px;
+
+      }
+      .social-icons {
+        margin-top: 20px;
+      }
+      .social-icons a {
+        color: #fff;
+        font-size: 24px;
+        margin-right: 10px; /* Ajoute un espace entre les icônes */
+      }
   </style>
 </head>
 <body>

@@ -38,6 +38,15 @@
     .col-md-6 h1{
       color: #FFBF00
     }
+    .social{
+      text-align: center;
+    }
+    .logo_social{
+      width:20px;
+      height:20px;
+      display: flex;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -87,10 +96,14 @@
   <div class="social">
     <h4> Social Media :</h4>
     <div class="logo_social">
-      <a href="" ><img src="images/footer/activite_fb.png" class="social-media" alt="social"></a>
-      <a href="" ><img src="images/footer/activite_insta.png" class="social-media" alt="social"></a>
-      <a href="" ><img src="images/footer/activite_twitter.png" class="social-media" alt="social"></a>
+      <img src="<%= request.getContextPath() %>/media/activite_fb.png" alt="null Image">
+      <img src="<%= request.getContextPath() %>/media/activite_insta.png" alt="Construction Image">
+      <img src="<%= request.getContextPath() %>/media/activite_twitter.png" alt="Construction Image">
+      <img src="<%= request.getContextPath() %>/media/activite_copyright.png" alt="Construction Image">
+
     </div>
+  </div>
+  <div class="copyRight">
   </div>
 </footer>
 </html>

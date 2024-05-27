@@ -41,7 +41,7 @@
         .social-icons a {
             color: #fff;
             font-size: 24px;
-            margin-right: 10px; /* Ajoute un espace entre les icônes */
+            margin-right: 10px;
         }
     </style>
 </head>
